@@ -3,6 +3,9 @@ const PORT = 9000;
 const HOSTNAME= 'localhost';
 
 const server = http.createServer((req, res)=>{
+    if(req.url.startsWith('/tasks')){
+        taskRoutes(req, res);
+    }
 
 })
 
