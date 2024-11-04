@@ -8,7 +8,9 @@ const taskRoutes=(req,res)=>{
     }else if(req.method === 'DELETE'){
         deleteTask(req, res);   
     }else{
-        res.writeHead(405,{'Content-Type': 'application/json'});
+        res.writeHead(405,'data not found',{'Content-Type': 'application/json'});
         res.end(JSON.stringify({error: 'page not allowed'}));
     }
 }
+
+module.exports = taskRoutes;
