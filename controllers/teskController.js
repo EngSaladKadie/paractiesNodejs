@@ -38,14 +38,25 @@ exports.createTask =(req,res)=>{
     })
 }
 
-exports.updateTask=(req ,res)=>{
-    res.end(JSON.stringify({
-        message:'not emplemented'
-    }))
-}
+exports.UpdateTask = async (req, res) => {
+    try {
+        const { id } = req.params; 
+        const updateData = req.body; 
 
-exports.deleteTask=(req ,res)=>{
-    res.end(JSON.stringify({
-        message:'not emplemented'
-    }))
-}
+      
+        const updatedTask = await Task.findByIdAndUpdate(id, updateData, { new: true });
+
+        if (!updatedTask) {
+            return res.status(404).json({ message: "Task not found" });
+        }
+
+        res.status(200).json({
+            message: "Task updated successfully",
+            data: updatedTask
+        });
+    } catch (error) {
+        console.error("Error updating task:", error);
+        res.status(500).json({ message: "An error occurred while updating the task" });
+    }
+};
+
