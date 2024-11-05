@@ -20,5 +20,14 @@ exports.createTask =(req,res)=>{
             return 
             
         }
+        const tasks = readTaasksFromFile()
+        const newTasks={
+            id: Date.now(),
+            title: field.title,
+            describtion: field?.describtion ||'',
+            status: field?.status || 'pending',
+            image:  files.image ? `/uploads/${files.image.name}`: null,
+
+        }
     })
 }
