@@ -24,7 +24,7 @@ exports.createTask =(req,res)=>{
         const newTasks={
             id: Date.now(),
             title: field.title,
-            describtion: field?.describtion ||'',
+            describtion: field?.describtion || '',
             status: field?.status || 'pending',
             image:  files.image ? `/uploads/${files.image.name}`: null,
 
