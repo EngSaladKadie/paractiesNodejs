@@ -1,5 +1,5 @@
 const { getTasks } = require("../controllers/teskController");
-const {createTask} = require('../controllers/teskController')
+const {createTask ,updateTask, deleteTask} = require('../controllers/teskController')
 
 const taskRoutes=(req,res)=>{
     if(req.method === 'GET'){               
